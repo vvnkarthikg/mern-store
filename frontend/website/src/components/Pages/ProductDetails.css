@@ -1,0 +1,154 @@
+/* ProductDetails.css */
+
+.product-details {
+    background-color: #efeff7; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh; /* Ensure the section takes full height */
+}
+
+.product-layout {
+    display: flex;
+    flex-direction: row; /* Side by side layout */
+    width: 100%; /* Use full width */
+    max-width: 1200px; /* Maximum width for larger screens */
+    margin: 0; /* Remove margin to eliminate spacing on the sides */
+    padding: 0; /* Remove padding if any */
+}
+
+.product-image {
+    width: 50%; /* Image occupies 50% of the layout */
+    height: auto; /* Allow height to adjust automatically */
+    object-fit: contain; /* Maintain aspect ratio without cropping */
+    border: 1px solid #cccccc00; /* Border thickness and color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
+    margin-right: 20px; /* Space between image and info */
+}
+
+.product-image:hover {
+    transform: scale(1.05);   
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align to the top */
+    width: 50%; /* Info occupies the remaining 50% */
+}
+
+.product-name,
+.product-price,
+.product-quantity,
+.product-category {
+    margin-bottom: 10px; /* Space between fields */
+}
+
+/* Editable Fields Styles */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px; /* Padding inside input fields */
+    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    font-size: 16px; /* Font size for readability */
+}
+
+textarea {
+    height: 100px; /* Set a fixed height for textarea */
+}
+
+/* Editable Fields Focus Styles */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none; /* Remove default outline on focus */
+    border-color: #076dad; /* Change border color on focus */
+}
+
+/* Product Name Styles */
+.product-name {
+    font-size: 32px; /* Larger font size for product name */
+    font-weight: bolder; /* Bold font for the product name */
+}
+
+/* Price Styles */
+.product-price {
+    font-size: 24px; /* Price font size */
+}
+
+/* Button Styles */
+.add-to-cart,
+.buy-now {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #076dad; /* Button color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+}
+
+.add-to-cart:hover,
+.buy-now:hover {
+    background-color: #064268; /* Darker shade on hover */
+}
+
+/* Description Styles */
+.product-description {
+    margin-top: 20px;
+}
+
+/* Loading and Error Styles */
+.loading {
+    font-size: 20px;
+}
+
+.error {
+    color: red;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+   .product-layout {
+       flex-direction: column; /* Stack image and info vertically on smaller screens */
+       align-items: center; /* Center align items in column layout */
+   }
+
+   .product-image {
+       width: auto; /* Allow image to take full width in column layout */
+       max-width: 100%; /* Ensure it doesn't overflow the container */
+       margin-right: 0; /* Remove right margin in column layout */
+   }
+
+   .product-info {
+       width: auto; /* Allow info section to take full width in column layout */
+   }
+}
+
+/* For mobile devices (smaller than tablets) */
+@media (max-width: 480px) {
+   .product-name {
+       font-size: 24px; /* Smaller heading size on mobile */
+   }
+
+   .product-price,
+   .product-quantity,
+   .product-category {
+       font-size: 14px; /* Smaller text size on mobile */
+   }
+
+   .add-to-cart,
+   .buy-now {
+       width: calc(100% - 24px); /* Full width buttons with some padding adjustment */
+       margin-top: 10px; /* Adjust space above buttons on mobile */
+   }
+}

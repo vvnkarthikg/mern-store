@@ -1,0 +1,90 @@
+/* src/Auth.css */
+.auth-container {
+  display: flex;
+  height: 85vh; /* Full viewport height */
+  margin-top: 10px;
+}
+
+.auth-left {
+  flex: 1; /* Takes up half of the container */
+  background-image: url("../images/coverpage.jpg");
+  background-size: contain; /* Ensure the entire image is visible */
+  background-repeat: no-repeat; /* Prevents repeating of the image */
+  background-position: center; /* Center the image in the container */
+  height: 100%; /* Full viewport height */
+}
+.auth-right {
+  flex: 1; /* Takes up half of the container */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: #f7f7f7; /* Light gray background */
+}
+
+.auth-form {
+  width: 100%; /* Make form responsive */
+  max-width: 400px; /* Limit maximum width for larger screens */
+  padding: 30px; /* Increased padding for better spacing */
+  background-color: #fff; /* White background for form */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+  border-radius: 10px; /* Rounded corners */
+}
+
+h2 {
+  text-align: center; /* Center the heading text */
+  margin-bottom: 25px; /* More space below the heading */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Increased space between form groups */
+}
+
+.form-group label {
+  display: block; /* Labels take full width */
+  margin-bottom: 4px; /* Space below label for clarity */
+}
+
+.form-group input {
+  width: 100%; /* Full width inputs */
+  padding: 8px; /* Increased padding for comfort */
+  border-radius: 5px; /* Rounded corners for inputs */
+  border: 1px solid #ddd; /* Light border color */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.submit-btn {
+  width: 100%; /* Full width button */
+  padding: 12px; /* Increased padding for button comfort */
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer;
+  font-size: 16px; /* Larger font size for readability */
+}
+
+.submit-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover for feedback */
+}
+
+.switch-text {
+  text-align: center;
+  margin-top: 15px; /* More space above switch text for separation */
+}
+
+.switch-btn {
+  background: none;
+  border: none;
+  color: #007bff; /* Link color for switch button */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.switch-btn:hover {
+  background-color:#007bff ;
+  color: white; /* White text color on hover for feedback */
+  padding: 10px;
+  margin:0px 10px;
+  border-radius: 5px;
+}

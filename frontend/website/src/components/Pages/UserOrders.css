@@ -1,0 +1,46 @@
+/* UserOrders.css */
+
+.orders-container {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 20px; /* Padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 20px auto; /* Center the container with margin */
+}
+
+.orders-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.order-item {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between item name and details */
+    padding: 15px; /* Padding inside each item */
+    border-bottom: 1px solid #e0e0e0; /* Light border between items */
+}
+
+.order-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.item-name {
+    font-size: 1.2em; /* Slightly larger font size for item name */
+    color: #007bff; /* Blue color for item name */
+}
+
+.item-details,
+.item-order-number {
+    font-size: 1em; /* Standard font size for details */
+    color: #555; /* Dark gray color for details */
+}
+
+.loading {
+    text-align: center; /* Center loading text */
+}
+
+.error {
+    color: red; /* Red color for error messages */
+    text-align: center; /* Center error text */
+}

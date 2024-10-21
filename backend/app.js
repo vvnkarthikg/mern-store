@@ -25,7 +25,9 @@ app.use('/Images', express.static(path.join(__dirname, 'api/Images')));
 app.use('/products', productRoutes); 
 app.use('/orders', orderRoutes);
 app.use('/user',userRoutes);
-app.use('/',home);
+app.get('/',(req,res)=>{
+    res.json("hello");
+});
 
 
 // Database connection

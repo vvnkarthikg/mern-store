@@ -5,9 +5,10 @@
   padding: 10px 20px;
   background-color: #1f29e2; 
   color: white; /* White text */
-  width: 97.4%; /* Use full width */
+  width: 100; /* Use full width */
   margin-bottom: 1px;
   padding-bottom: px;
+
 }
 
 .navbar-title {

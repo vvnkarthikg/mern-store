@@ -13,18 +13,20 @@ body {
 
 /* Banner Section */
 .banner-image {
-    padding-top:10px ;
-    width: 100%; /* Make it wider for better visibility */
+    width: 95%; /* Ensure full width but within the home container */
     margin: 0 auto 1em; /* Center the banner */
-    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.3); /* Move shadow here */
+    padding: 0; /* Remove extra padding */
+    box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.3); /* Keep shadow for effect */
+    border-radius: 20px; /* Rounded corners */
+
 }
 
 .banner-img {
     width: 100%; /* Ensure it scales responsively */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 3px;
-    
-    
+    border-radius: 20px; /* Rounded corners */
+    display: block; /* Remove any unwanted gaps */
 }
 
 /* Product List */

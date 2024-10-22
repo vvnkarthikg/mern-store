@@ -16,9 +16,7 @@ const home = require('./api/routes/home');
 //express automatically includes body-parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-    origin: 'https://mern-store-frontend-silk.vercel.app', // Your frontend URL
-}));
+app.use(cors());
 app.use('/Images', express.static(path.join(__dirname, 'api/Images')));
 
 // Mount the routers

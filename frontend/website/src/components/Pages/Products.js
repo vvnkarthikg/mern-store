@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
+import bannerImage from '../images/minibanner1.png'; // Import the banner image
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,6 @@ const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      console.log(`${process.env.REACT_APP_API_URL}/products`);
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
       setProducts(response.data);
     } catch (err) {
@@ -21,12 +21,12 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []); // No dependencies mean it will only run on mount
+  }, []); 
 
   return (
     <>
       <div className="banner-image">
-        {/* Add your banner image here */}
+        <img src={bannerImage} alt="Banner" className="banner-img" />
       </div>
 
       <div className="home-container">

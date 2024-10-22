@@ -2,9 +2,12 @@
   "name": "shopapi",
   "version": "1.0.0",
   "main": "index.js",
+  "engines":{
+    "node" : "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

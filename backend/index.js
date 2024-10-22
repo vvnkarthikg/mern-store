@@ -24,7 +24,7 @@ app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/user',userRoutes);
 app.get('/',(req,res)=>{
-    res.json("hello");
+    res.json("hello it is working");
 });
 
 

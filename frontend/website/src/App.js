@@ -8,6 +8,7 @@ import ProductDetails from './components/Pages/ProductDetails';
 import UserOrders from './components/Pages/UserOrders';
 import UserProfile from './components/Pages/UserProfile';
 import AddProduct from './components/Pages/AddProduct';
+import Footer from './components/Pages/Footer';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/add-product" element={<AddProduct />} />
       </Routes>
+      <Footer />
     </Router>
     
     </>

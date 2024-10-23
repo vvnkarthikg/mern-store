@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
-import bannerImage from '../images/minibanner1.png'; // Import the banner image
+import bannerImage from '../images/minibanner3.png'; // Import the banner image
 
 const Products = () => {
   const [products, setProducts] = useState([]);

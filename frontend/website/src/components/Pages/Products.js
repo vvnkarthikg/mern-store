@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
 import bannerImage from '../images/minibanner3.png'; // Import the banner image
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState('');
-
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
-      setProducts(response.data);
-    } catch (err) {
-      console.error(err);
-      setError('Failed to fetch products');
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []); 
-
+const Products = ({ products, error }) => {
   return (
     <>
       <div className="banner-image">

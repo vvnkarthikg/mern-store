@@ -98,6 +98,8 @@ const ProductDetails = () => {
     if (loading) return <p className="loading">Loading...</p>;
     if (error) return <p className="error">{error}</p>;
 
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+
     return (
         <div className="product-details">
             {product ? (
@@ -161,18 +163,19 @@ const ProductDetails = () => {
                                 <p>{product.description}</p>
                             )}
                         </div>
-                        <button className="buy-now" onClick={handleOrderNow}>Order Now</button> {/* Open modal on click */}
-                        {localStorage.getItem('isAdmin') === 'true' && ( // Check if user is admin
-                            <>
-                                {isEditing ? (
-                                    <>
-                                        <button onClick={handleSaveChanges}>Save Changes</button>
-                                        <button onClick={handleEditToggle}>Cancel</button>
-                                    </>
-                                ) : (
-                                    <button onClick={handleEditToggle}>Edit</button>
-                                )}
-                            </>
+                        {/* Conditionally render Order Now and Edit buttons based on user role */}
+                        {!isAdmin && (
+                            <button className="buy-now" onClick={handleOrderNow}>Order Now</button>
+                        )}
+                        {isAdmin && (
+                            isEditing ? (
+                                <>
+                                    <button onClick={handleSaveChanges}>Save Changes</button>
+                                    <button onClick={handleEditToggle}>Cancel</button>
+                                </>
+                            ) : (
+                                <button onClick={handleEditToggle}>Edit</button>
+                            )
                         )}
                     </div>
                 </div>

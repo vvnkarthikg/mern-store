@@ -6,7 +6,7 @@
   padding: 10px 20px;
   background-color: #060b58; /* Dark blue background */
   color: white; /* White text */
-  margin-bottom: 15px;
+  margin-bottom: 0.1rem;
   position: relative; /* To position the search results */
 }
 

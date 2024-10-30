@@ -2,13 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
-import bannerImage from '../images/minibanner3.png'; // Import the banner image
+import bannerImage from '../images/minibanner5.png'; // Import the banner image
+import brand1 from '../images/kinderjoy.png'; // Import brand logos
+import brand2 from '../images/parle.svg';
+import brand3 from '../images/tictac.png';
 
 const Products = ({ products, error }) => {
   return (
     <>
       <div className="banner-image">
         <img src={bannerImage} alt="Banner" className="banner-img" />
+      </div>
+
+      {/* Brand Logos Section */}
+      <div className="brand-section">
+        <h2 className="brand-heading">Brands We Sell</h2>
+        <div className="brand-logos">
+          <img src={brand1} alt="Brand 1" className="brand-logo" />
+          <img src={brand2} alt="Brand 2" className="brand-logo" />
+          <img src={brand3} alt="Brand 3" className="brand-logo" />
+        </div>
       </div>
 
       <div className="home-container">

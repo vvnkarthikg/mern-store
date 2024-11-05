@@ -6,18 +6,35 @@ const Product = require('../models/product');
 const checkAuth = require('../middlewares/check-auth');
 
 router.get('/', checkAuth, async (req, res) => {
-
     try {
-        // Fetch orders from database for the authenticated user
         const userId = req.userData.userId;
-        const orders = await order.find({user:userId}).populate('product'); // Filter by user ID
+        const isAdmin = req.userData.isAdmin; // Check if user is admin
 
+        let orders; // Declare orders variable
 
+        if (isAdmin) {
+            // Fetch all orders if the user is an admin
+            orders = await order.find().populate('product');
+        } else {
+            // Fetch only the user's orders
+            orders = await order.find({ user: userId }).populate('product');
+        }
+
+        // Transforming orders to include necessary fields
         const transformedOrders = orders.map(order => {
             return {
                 id: order._id,
-                product: order.product,
-                quantity: order.quantity
+                product: {
+                    id: order.product._id,
+                    name: order.product.name,
+                    price: order.product.price,
+                    productImage: order.product.productImage,
+                    quantity: order.product.quantity,
+                    category: order.product.category,
+                    description: order.product.description,
+                },
+                quantity: order.quantity,
+                orderNumber: order.orderNumber // Include orderNumber if needed
             };
         });
 
@@ -26,11 +43,10 @@ router.get('/', checkAuth, async (req, res) => {
             orders: transformedOrders
         });
     } catch (err) {
-        console.error('Error fetching orders:', err.message); // Log the error message
+        console.error('Error fetching orders:', err.message);
         res.status(500).json({ message: err.message });
     }
 });
-
 
 
 router.post('/', checkAuth, async (req, res) => {

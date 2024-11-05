@@ -1,47 +1,66 @@
-// components/UserOrders.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './UserOrders.css'; // Import the CSS file for styles
+import { useNavigate } from 'react-router-dom';
+import './UserOrders.css';
+import noImage from '../images/no.jpg'; // Placeholder image for products
 
 const UserOrders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const isAdmin = localStorage.getItem('isAdmin') === 'true'; // Check if user is admin
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const token = localStorage.getItem('token'); // Get token from local storage
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/orders/`, {
-                    headers: { Authorization: `Bearer ${token}` } // Set authorization header
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    const confirmLogin = window.confirm("Please log in to view your orders.");
+                    if (confirmLogin) {
+                        navigate('/auth'); // Redirect to login if confirmed
+                    }
+                    return; // Exit the function if no token
+                }
+
+                // Fetch all orders if user is admin, otherwise fetch only user's orders
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/orders/${isAdmin ? '' : 'my-orders'}`, {
+                    headers: { Authorization: `Bearer ${token}` }
                 });
-                setOrders(response.data.orders); // Set orders in state
-                console.log(response.data)
+                setOrders(response.data.orders); // Adjusted to match the response structure
             } catch (err) {
-                setError('Failed to fetch orders'); // Handle error fetching orders
+                setError('Failed to fetch orders');
             } finally {
-                setLoading(false); // Stop loading state
+                setLoading(false);
             }
         };
 
-        fetchOrders(); // Call function to fetch orders when component mounts
-    }, []);
+        fetchOrders();
+    }, [navigate, isAdmin]);
 
-    if (loading) return <p className="loading">Loading...</p>; // Show loading state while fetching data
-    if (error) return <p className="error">{error} Orders:odkd</p>; // Show error message if fetching fails
+    if (loading) return <p className="order-loading">Loading...</p>;
+    if (error) return <p className="order-error">{error}</p>;
 
     return (
-        <div className="orders-container">
+        <div className="order-container">
             <h1>Your Orders</h1>
             {orders.length === 0 ? (
-                <p>No orders found.</p> // Message if no orders are available
+                <p>No orders found.</p>
             ) : (
-                <ul className="orders-list">
+                <ul className="order-list">
                     {orders.map(order => (
-                        <li key={order._id} className="order-item">
-                            <span className="item-name">{order.product.name}</span>
-                            <span className="item-details">Quantity: {order.quantity}</span>
-                            <span className="item-order-number">Order Number: {order.orderNumber}</span>
+                        <li key={order.id} className="order-item">
+                            <img 
+                                src={order.product.productImage && order.product.productImage !== "" 
+                                    ? `${process.env.REACT_APP_API_URL}/${order.product.productImage}` 
+                                    : noImage} 
+                                alt={order.product.name} 
+                                className="order-item-image" 
+                            />
+                            <div className="order-item-details">
+                                <span className="order-item-name">{order.product.name}</span>
+                                <span className="order-item-quantity">Quantity: {order.quantity}</span>
+                            </div>
                         </li>
                     ))}
                 </ul>

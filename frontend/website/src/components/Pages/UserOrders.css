@@ -1,22 +1,21 @@
 /* UserOrders.css */
 
-.orders-container {
-    background-color: #f9f9f9; /* Light background for contrast */
+.order-container {
+    background-color: #ffffff; /* Light background for contrast */
     padding: 20px; /* Padding around the container */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    max-width: 800px; /* Maximum width for larger screens */
     margin: 20px auto; /* Center the container with margin */
 }
 
-.orders-list {
+.order-list {
     list-style-type: none; /* Remove bullet points */
     padding: 0; /* Remove default padding */
 }
 
 .order-item {
     display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between item name and details */
+    align-items: center; /* Center items vertically */
     padding: 15px; /* Padding inside each item */
     border-bottom: 1px solid #e0e0e0; /* Light border between items */
 }
@@ -25,22 +24,39 @@
     border-bottom: none; /* Remove border from last item */
 }
 
-.item-name {
+.order-item-image {
+    width: 80px; /* Set a fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and text */
+}
+
+.order-item-details {
+    flex-grow: 1; /* Allow details to take remaining space */
+}
+
+.order-item-name {
     font-size: 1.2em; /* Slightly larger font size for item name */
     color: #007bff; /* Blue color for item name */
 }
 
-.item-details,
-.item-order-number {
+.order-item-quantity {
     font-size: 1em; /* Standard font size for details */
     color: #555; /* Dark gray color for details */
 }
 
-.loading {
+/* New styles for order number subtext */
+.order-item-subtext {
+    font-size: 0.9em; /* Smaller font size for subtext */
+    color: #777; /* Lighter gray color for subtext */
+    text-align: right; /* Align text to the right */
+    width: 100%; /* Take full width of the parent container */
+}
+
+.order-loading {
     text-align: center; /* Center loading text */
 }
 
-.error {
+.order-error {
     color: red; /* Red color for error messages */
     text-align: center; /* Center error text */
 }

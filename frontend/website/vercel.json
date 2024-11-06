@@ -5,21 +5,15 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build" 
+        "distDir": "build"
       }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)", 
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)", 
-      "dest": "/$1"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/" }
   ],
   "env": {
-    "REACT_APP_API_URL": "https://mern-store-api-one.vercel.app" 
+    "REACT_APP_API_URL": "https://mern-store-api-one.vercel.app"
   }
 }

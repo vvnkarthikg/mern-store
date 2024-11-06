@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { FaHome, FaUser, FaSignInAlt, FaSignOutAlt, FaShoppingCart, FaUserCircle } from 'react-icons/fa';
@@ -9,17 +9,33 @@ const Navbar = ({ products }) => {
     const token = localStorage.getItem('token');
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
     const [isOverlayVisible, setOverlayVisible] = useState(false);
+    const overlayRef = useRef(null);
 
     const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('isAdmin');
+        setOverlayVisible(false); // Close overlay after logout
     };
 
     const handleProductSelect = (productId) => {
         navigate(`/products/${productId}`); // Navigate to the product details page
     };
+
+    // Close overlay if clicking outside of it
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (overlayRef.current && !overlayRef.current.contains(event.target)) {
+                setOverlayVisible(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         <nav className="navbar">
@@ -38,7 +54,7 @@ const Navbar = ({ products }) => {
                     <li>
                         <FaUserCircle onClick={() => setOverlayVisible(!isOverlayVisible)} style={{ cursor: 'pointer' }} />
                         {isOverlayVisible && (
-                            <div className="overlay">
+                            <div className="overlay" ref={overlayRef}>
                                 <ul>
                                     <li><Link to="/profile"><FaUser /> Profile</Link></li>
                                     <li><a href="/" onClick={handleLogout}><FaSignOutAlt /> Logout</a></li>

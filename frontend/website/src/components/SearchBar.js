@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaArrowRight, FaSearch } from 'react-icons/fa'; // Import the arrow and search icons
 import './SearchBar.css'; // Import the CSS for the SearchBar component
 
 const SearchBar = ({ products, onProductSelect }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const searchRef = useRef(null); // Create a ref for the search bar container
 
     const handleSearchChange = (e) => {
         const term = e.target.value;
@@ -27,8 +28,23 @@ const SearchBar = ({ products, onProductSelect }) => {
         setFilteredProducts([]); // Clear the search results
     };
 
+    // Close search results when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                setFilteredProducts([]); // Clear search results
+                setSearchTerm(''); // Optionally clear the input as well
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="searchbar-container">
+        <div className="searchbar-container" ref={searchRef}>
             <input 
                 type="text" 
                 placeholder="Search" 

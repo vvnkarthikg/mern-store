@@ -1,5 +1,3 @@
-//we install mongoose-sequence to auto-increment order id
-
 // models/order.js
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
@@ -10,7 +8,7 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required: true 
-    }, //to get product details populate into here
+    }, // to get product details populated into here
     quantity: {
         type: Number,
         default: 1
@@ -23,6 +21,19 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', // Assuming you have a User model
         required: true
+    },
+    status: {
+        type: String,
+        enum: ['Processing', 'Delivered', 'Failed'], // Define possible statuses
+        default: 'Processing' // Default status when an order is created
+    },
+    createdOn: {
+        type: Date,
+        default: Date.now // Automatically set to current date/time when created
+    },
+    deliveredOn: {
+        type: Date,
+        default: null // Initially set to null, can be updated when the order is delivered
     }
 });
 

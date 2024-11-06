@@ -1,13 +1,14 @@
-/* AddProduct.css */
-
 .addproduct-container {
-    max-width: 600px; /* Set a max width for the form */
+    max-width: 1200px; /* Set a max width for the form */
     margin: 0 auto; /* Center the form */
     padding: 20px; /* Add some padding */
     border: 1px solid #ccc; /* Light border around the form */
     border-radius: 8px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background color */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f9f9f9;
+    font-family: "Roboto",sans-serif;
+
+
 }
 
 .addproduct-container h2 {
@@ -15,9 +16,23 @@
     margin-bottom: 20px; /* Space below the heading */
 }
 
-.addproduct-container form {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
+.form-layout {
+    display: flex; /* Use flexbox for layout */
+}
+
+/* Adjusted upload-section styles for vertical centering */
+.upload-section {
+    flex: 1; /* Allow upload section to take up space */
+    margin-right: 20px; /* Space between upload and details sections */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100%; /* Ensure it takes full height of the parent */
+}
+
+.details-section {
+    flex: 2; /* Allow details section to take up more space */
 }
 
 .addproduct-container label {
@@ -27,32 +42,60 @@
 
 .addproduct-container input[type="text"],
 .addproduct-container input[type="number"],
-.addproduct-container input[type="file"] {
+.addproduct-container input[type="file"],
+.addproduct-container textarea { /* Include textarea in styles */
     padding: 10px; /* Padding inside input fields */
     margin-bottom: 15px; /* Space below each input field */
     border: 1px solid #ccc; /* Border for input fields */
     border-radius: 4px; /* Rounded corners for input fields */
 }
 
-.addproduct-container input[type="file"] {
-    padding: 5px; /* Padding for file input (less than text inputs) */
+.addproduct-container textarea { /* Specific styles for textarea */
+    resize: vertical; /* Allow vertical resizing only */
 }
 
-.addproduct-container button {
-    padding: 10px;
-    background-color: #007bff; /* Bootstrap primary color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size for button text */
+/* Styles for Image Preview and Placeholder */
+.image-preview {
+   width: 150px; /* Increase width of the preview image */
+   height: 150px; /* Increase height of the preview image */
+   object-fit: cover; /* Maintain aspect ratio while covering area */
+   border-radius: 50%; /* Make it circular by rounding corners completely */
+   margin-top: 10px; /* Space above the preview image */
+   border: 2px solid #007bff; /* Optional border around the image preview for emphasis */
+   align-self: center; /* Center align the preview within its container*/
 }
 
-.addproduct-container button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+/* Styles for Placeholder when no image is uploaded */
+.image-placeholder {
+   width: 200px;
+   height: 200px;
+   background-color: #e0e0e0;
+   border-radius: 50%; /* Circular shape */
+   border: 1px solid rgb(108, 107, 107); 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   font-weight: 500;
+   margin-top: 100px; /* Space above placeholder text*/
 }
 
-.addproduct-container p {
-    text-align: center; /* Center messages below the form */
-    color: green; /* Color for success messages */
+.image-placeholder p{
+    opacity: 90%;
 }
+
+/* Custom Styling for File Input */
+.file-input {
+   display: none; /* Hide default file input element */  
+}
+
+.upload-section label.custom-file-upload {
+   display: inline-block;
+   margin-top: 10px;
+   padding: 10px;
+   background-color: #05274b;
+   color: white;
+   border-radius: 4px;
+   cursor: pointer;
+}
+

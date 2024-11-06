@@ -1,62 +1,127 @@
-/* UserOrders.css */
+/* User Orders Container */
+.user-orders {
+    max-width: 1200px; /* Maximum width for the orders container */
+    margin: 40px auto; /* Center the container with top and bottom margins */
+    padding: 0 20px; /* Horizontal padding */
+}
 
+/* Title Styles */
+.orders-title {
+    font-size: 2em; /* Font size for the title */
+    color: #333; /* Dark gray color for the title */
+    text-align: center; /* Center align the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Order Container Styles */
 .order-container {
-    background-color: #ffffff; /* Light background for contrast */
-    padding: 20px; /* Padding around the container */
+    background-color: #ffffff; /* White background for the order container */
+    padding: 20px; /* Padding inside the container */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 20px auto; /* Center the container with margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    border: 1px solid #e0e0e0; /* Light gray border around the container */
 }
 
+/* Order List Styles */
 .order-list {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none; /* Remove default list styling */
     padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
+/* Individual Order Item Styles */
 .order-item {
     display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    padding: 15px; /* Padding inside each item */
-    border-bottom: 1px solid #e0e0e0; /* Light border between items */
+    align-items: flex-start; /* Align items at the start vertically */
+    padding: 20px; /* Padding around each order item */
+    border-bottom: 1px solid #e0e0e0; /* Light gray border at the bottom of each item */
 }
 
 .order-item:last-child {
-    border-bottom: none; /* Remove border from last item */
+    border-bottom: none; /* Remove border for the last item */
 }
 
+/* Product Image Styles */
 .order-item-image {
-    width: 80px; /* Set a fixed width for images */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 15px; /* Space between image and text */
+    width: 150px; /* Increased width for product images */
+    height: 150px; /* Increased height for product images */
+    object-fit: cover; /* Maintain aspect ratio while covering area */
+    border-radius: 8px; /* Rounded corners for images */
+    margin-right: 20px; /* Space between image and text details */
 }
 
+/* Order Item Details Container Styles */
 .order-item-details {
-    flex-grow: 1; /* Allow details to take remaining space */
+    flex-grow: 1; /* Allow details to take remaining space in flexbox layout */
+    display: flex;
+    flex-direction: column; /* Stack details vertically */
+    gap: 8px; /* Space between each detail element */
 }
 
+/* Product Name Styles */
 .order-item-name {
-    font-size: 1.2em; /* Slightly larger font size for item name */
-    color: #007bff; /* Blue color for item name */
+    font-size: 1.6em; /* Larger font size for product name */
+    font-weight: 500; /* Bold font weight for emphasis */
 }
 
+/* Quantity Styles */
 .order-item-quantity {
-    font-size: 1em; /* Standard font size for details */
-    color: #555; /* Dark gray color for details */
+    font-size: 1em; /* Standard font size for quantity text */
+    color: #555; /* Dark gray color for quantity text */
 }
 
-/* New styles for order number subtext */
-.order-item-subtext {
-    font-size: 0.9em; /* Smaller font size for subtext */
-    color: #777; /* Lighter gray color for subtext */
-    text-align: right; /* Align text to the right */
-    width: 100%; /* Take full width of the parent container */
+/* Status Styles (Dynamic) */
+.order-item-status {
+    font-size: 1em; /* Standard font size for status text */
 }
 
-.order-loading {
-    text-align: center; /* Center loading text */
+/* Specific Status Colors with Lato Font Applied to Status Value Only*/
+.status-delivered {
+    color: green; /* Green color for delivered status */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.status-failed {
+    color: red; /* Red color for failed status */
+}
+
+.status-processing {
+    color: orange; /* Orange or another color for processing status or another choice of your preference*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* New Styles for Order Meta Information (Order Number and Date)*/
+.order-meta {
+    display: flex; /* Use flexbox for layout of meta information */
+    justify-content: space-between; /* Space between order number and date on opposite sides */
+}
+
+/* Order Number Styles */
+.order-item-number {
+    font-size: 0.9em; /* Smaller font size for order number text */
+    color: #777; /* Light gray color for order number text */
+}
+
+/* Date Styles (Created On / Delivered On)*/
+.order-item-date {
+    font-size: 0.9em; /* Same size as order number text*/
+    color: #777; /* Light gray color for date text*/
+}
+
+/* Loading and Error Message Styles */
+.order-loading,
+.order-error {
+    text-align: center; /* Center align loading and error messages*/
+    font-size: 1.2em; /* Standard font size for messages*/
 }
 
 .order-error {
-    color: red; /* Red color for error messages */
-    text-align: center; /* Center error text */
+    color: red; /* Red color specifically for error messages*/
+}
+
+/* Apply Lato Font to Status Value Only */
+
+.order-item-status span { 
+   font-family: 'Lato', sans-serif;
+   font-weight: bold;
 }

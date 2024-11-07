@@ -1,6 +1,38 @@
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
+const addressSchema = mongoose.Schema({
+    doorNo: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    street: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    landmark: {
+        type: String,
+        trim: true
+    },
+    area: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    mandal: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    district: {
+        type: String,
+        required: true,
+        trim: true
+    }
+});
+
 const userSchema = mongoose.Schema({
     firstName: {
         type: String,
@@ -30,8 +62,9 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    phone:{
-        type:String
+    phoneNumber:{
+        type:String,
+        trim:true // Optional, but good practice to trim whitespace
     },
     createdAt: {
         type: Date,
@@ -44,6 +77,20 @@ const userSchema = mongoose.Schema({
     profilepic:{
         type:String,
         default:''
+    },
+    storeName:{
+        type:String,
+        required:true, // Assuming store name is mandatory
+        trim:true
+    },
+    gstNumber:{
+        type:String,
+        required:true, // Assuming GST number is mandatory
+        trim:true
+    },
+    address:{
+        type: addressSchema, // Embed the address schema here
+        required:true // Assuming address is mandatory
     }
 });
 

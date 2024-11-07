@@ -22,7 +22,6 @@ const Signup = ({ onSwitchToLogin }) => {
         lastName,
         email,
         password,
-        
         isAdmin: false // Adjust as necessary
       });
       
@@ -41,7 +40,7 @@ const Signup = ({ onSwitchToLogin }) => {
       <div className="auth-right">
         <form onSubmit={handleSubmit} className="auth-form">
           <h2>Signup</h2>
-          <div className="form-group">
+          <div className="auth-form-group">
             <label>First Name</label>
             <input
               type="text"
@@ -51,7 +50,7 @@ const Signup = ({ onSwitchToLogin }) => {
               placeholder="Enter your first name"
             />
           </div>
-          <div className="form-group">
+          <div className="auth-form-group">
             <label>Last Name</label>
             <input
               type="text"
@@ -61,7 +60,7 @@ const Signup = ({ onSwitchToLogin }) => {
               placeholder="Enter your last name"
             />
           </div>
-          <div className="form-group">
+          <div className="auth-form-group">
             <label>Email</label>
             <input
               type="email"
@@ -71,7 +70,7 @@ const Signup = ({ onSwitchToLogin }) => {
               placeholder="Enter your email"
             />
           </div>
-          <div className="form-group">
+          <div className="auth-form-group">
             <label>Password</label>
             <input
               type="password"
@@ -81,7 +80,7 @@ const Signup = ({ onSwitchToLogin }) => {
               placeholder="Enter your password"
             />
           </div>
-          <div className="form-group">
+          <div className="auth-form-group">
             <label>Confirm Password</label>
             <input
               type="password"
@@ -92,9 +91,9 @@ const Signup = ({ onSwitchToLogin }) => {
             />
           </div>
           
-          <button type="submit" className="submit-btn">Signup</button>
-          <p className="switch-text">Already have an account? 
-            <button type="button" onClick={onSwitchToLogin} className="switch-btn">Login</button>
+          <button type="submit" className="auth-submit-btn">Signup</button>
+          <p className="auth-switch-text">Already have an account? 
+            <button type="button" onClick={onSwitchToLogin} className="auth-switch-btn">Login</button>
           </p>
         </form>
       </div>

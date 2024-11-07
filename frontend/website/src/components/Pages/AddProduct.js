@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddProduct.css'; // Import the CSS file
+import ImageUpload from './ImageUpload';
 
 const AddProduct = () => {
   const [name, setName] = useState('');
@@ -73,24 +74,9 @@ const AddProduct = () => {
     <div className="addproduct-container">
       <h2>Add Product</h2>
       <div className="form-layout">
-        <div className="upload-section">
-          {/* Displaying Image Preview or Placeholder */}
-          {!imagePreview ? (
-            <div className="image-placeholder"><p>Your picture goes here</p></div>
-          ) : (
-            <img src={imagePreview} alt="Preview" className="image-preview" />
-          )}
-          <label htmlFor="file-upload" className="custom-file-upload">
-            Upload Image
-          </label>
-          <input 
-            id="file-upload"
-            type="file" 
-            accept="image/png, image/jpeg" 
-            onChange={handleImageChange} 
-            className="file-input" /* Custom class for styling */
-          />
-        </div>
+      <div className="upload-section">
+                    <ImageUpload onImageChange={handleImageChange} />
+                </div>
         <form onSubmit={handleSubmit} className="details-section">
           <div>
             <label>Name:</label>

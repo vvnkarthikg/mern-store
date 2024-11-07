@@ -1,90 +1,96 @@
-/* src/Auth.css */
 .auth-container {
   display: flex;
-  height: 85vh; /* Full viewport height */
+  height: 85vh;
   margin-top: 10px;
 }
 
 .auth-left {
-  flex: 1; /* Takes up half of the container */
+  flex: 1;
   background-image: url("../images/coverpage.jpg");
-  background-size: contain; /* Ensure the entire image is visible */
-  background-repeat: no-repeat; /* Prevents repeating of the image */
-  background-position: center; /* Center the image in the container */
-  height: 100%; /* Full viewport height */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
 }
+
 .auth-right {
-  flex: 1; /* Takes up half of the container */
+  flex: 1;
   display: flex;
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-  background-color: #f7f7f7; /* Light gray background */
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
 }
 
 .auth-form {
-  width: 100%; /* Make form responsive */
-  max-width: 400px; /* Limit maximum width for larger screens */
-  padding: 30px; /* Increased padding for better spacing */
-  background-color: #fff; /* White background for form */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-  border-radius: 10px; /* Rounded corners */
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-h2 {
-  text-align: center; /* Center the heading text */
-  margin-bottom: 25px; /* More space below the heading */
-}
-
-.form-group {
-  margin-bottom: 15px; /* Increased space between form groups */
-}
-
-.form-group label {
-  display: block; /* Labels take full width */
-  margin-bottom: 4px; /* Space below label for clarity */
-}
-
-.form-group input {
-  width: 100%; /* Full width inputs */
-  padding: 8px; /* Increased padding for comfort */
-  border-radius: 5px; /* Rounded corners for inputs */
-  border: 1px solid #ddd; /* Light border color */
-  box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.submit-btn {
-  width: 100%; /* Full width button */
-  padding: 12px; /* Increased padding for button comfort */
-  background-color: #007bff; /* Primary button color */
-  color: white; /* Button text color */
-  border: none;
-  border-radius: 5px; /* Rounded corners for button */
-  cursor: pointer;
-  font-size: 16px; /* Larger font size for readability */
-}
-
-.submit-btn:hover {
-  background-color: #0056b3; /* Darker shade on hover for feedback */
-}
-
-.switch-text {
+.auth-form h2 {
   text-align: center;
-  margin-top: 15px; /* More space above switch text for separation */
+  margin-bottom: 25px;
 }
 
-.switch-btn {
+.auth-form-group {
+  margin-bottom: 15px;
+}
+
+.auth-form-group label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.auth-form-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.auth-switch-text {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-switch-btn {
   background: none;
   border: none;
-  color: #007bff; /* Link color for switch button */
+  color: #007bff;
   cursor: pointer;
   font-size: 14px;
   font-weight: 400;
 }
 
-.switch-btn:hover {
-  background-color:#007bff ;
-  color: white; /* White text color on hover for feedback */
+.auth-switch-btn:hover {
+  background-color: #007bff;
+  color: white;
   padding: 10px;
-  margin:0px 10px;
+  margin: 0px 10px;
   border-radius: 5px;
+}
+
+.auth-error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
 }

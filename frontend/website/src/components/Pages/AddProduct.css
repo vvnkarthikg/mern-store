@@ -1,101 +1,143 @@
+/* AddProduct Component Styles */
 .addproduct-container {
-    max-width: 1200px; /* Set a max width for the form */
-    margin: 0 auto; /* Center the form */
-    padding: 20px; /* Add some padding */
-    border: 1px solid #ccc; /* Light border around the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     background-color: #f9f9f9;
-    font-family: "Roboto",sans-serif;
-
-
+    font-family: "Roboto", sans-serif;
 }
 
 .addproduct-container h2 {
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Space below the heading */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #05274b;
 }
 
 .form-layout {
-    display: flex; /* Use flexbox for layout */
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
-/* Adjusted upload-section styles for vertical centering */
 .upload-section {
-    flex: 1; /* Allow upload section to take up space */
-    margin-right: 20px; /* Space between upload and details sections */
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    height: 100%; /* Ensure it takes full height of the parent */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Remove background color and border */
+    background-color: transparent;
+    border: none;
+}
+
+.image-preview {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 15px 0;
+    border: 2px solid gray;
+}
+
+.image-placeholder {
+    width: 160px;
+    height: 160px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: black;
+    opacity: 0.8;
+}
+
+.file-input {
+    display: none;
+}
+
+label.custom-file-upload {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+label.custom-file-upload:hover {
+    background-color: #0056b3;
 }
 
 .details-section {
-    flex: 2; /* Allow details section to take up more space */
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.addproduct-container label {
-    margin-bottom: 5px; /* Space between label and input */
-    font-weight: bold; /* Bold labels for better readability */
+.details-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.addproduct-container input[type="text"],
-.addproduct-container input[type="number"],
-.addproduct-container input[type="file"],
-.addproduct-container textarea { /* Include textarea in styles */
-    padding: 10px; /* Padding inside input fields */
-    margin-bottom: 15px; /* Space below each input field */
-    border: 1px solid #ccc; /* Border for input fields */
-    border-radius: 4px; /* Rounded corners for input fields */
+.details-section input[type="text"],
+.details-section input[type="number"],
+.details-section textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
 }
 
-.addproduct-container textarea { /* Specific styles for textarea */
-    resize: vertical; /* Allow vertical resizing only */
+.details-section textarea {
+    resize: vertical;
 }
 
-/* Styles for Image Preview and Placeholder */
-.image-preview {
-   width: 150px; /* Increase width of the preview image */
-   height: 150px; /* Increase height of the preview image */
-   object-fit: cover; /* Maintain aspect ratio while covering area */
-   border-radius: 50%; /* Make it circular by rounding corners completely */
-   margin-top: 10px; /* Space above the preview image */
-   border: 2px solid #007bff; /* Optional border around the image preview for emphasis */
-   align-self: center; /* Center align the preview within its container*/
+/* Button Styling */
+button[type="submit"] {
+    padding: 12px;
+    background-color: #05274b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1rem;
 }
 
-/* Styles for Placeholder when no image is uploaded */
-.image-placeholder {
-   width: 200px;
-   height: 200px;
-   background-color: #e0e0e0;
-   border-radius: 50%; /* Circular shape */
-   border: 1px solid rgb(108, 107, 107); 
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: black;
-   font-weight: 500;
-   margin-top: 100px; /* Space above placeholder text*/
+button[type="submit"]:hover {
+    background-color: #031a34;
 }
 
-.image-placeholder p{
-    opacity: 90%;
+/* Loading and Message Styling */
+.addproduct-container p {
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
 }
 
-/* Custom Styling for File Input */
-.file-input {
-   display: none; /* Hide default file input element */  
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-layout {
+        flex-direction: column;
+    }
 
-.upload-section label.custom-file-upload {
-   display: inline-block;
-   margin-top: 10px;
-   padding: 10px;
-   background-color: #05274b;
-   color: white;
-   border-radius: 4px;
-   cursor: pointer;
-}
+    .image-preview, .image-placeholder {
+        width: 120px;
+        height: 120px;
+    }
 
+    label.custom-file-upload, button[type="submit"] {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}

@@ -8,6 +8,8 @@ const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const checkAuth = require('../middlewares/check-auth');
 const User = require("../models/user");
+const upload = require('../multerConfig');
+
 
 // User Signup
 router.post("/signup", (req, res) => {
@@ -103,14 +105,26 @@ router.get('/profile', checkAuth, async (req, res) => {
 });
 
 // Update User Details
-router.patch('/', checkAuth, async (req, res) => {
+router.patch('/', checkAuth, upload.single('profileImage'), async (req, res) => {
   try {
+    // Log the incoming request body
+    console.log('Incoming request body:', req.body);
+
     const { updateFields } = req.body;
 
     // Ensure updateFields is not empty
-    if (!updateFields || Object.keys(updateFields).length === 0) {
+    if (!updateFields && !req.file) {
+      console.log('No fields provided for update');
       return res.status(400).json({ message: "Provide details to update" });
     }
+
+    // Process file upload if there’s an uploaded file
+    if (req.file) {
+      updateFields.profileImage = req.file.path; // Save the file path in the profileImage field
+    }
+
+    // Log the fields to be updated
+    console.log('Fields to be updated:', updateFields);
 
     // Find the user by ID and update specified fields
     const updatedUser = await User.findByIdAndUpdate(
@@ -120,11 +134,14 @@ router.patch('/', checkAuth, async (req, res) => {
     );
 
     if (!updatedUser) {
+      console.log('User not found with ID:', req.userData.userId);
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Return updated user data excluding sensitive information
+    // Log the updated user data excluding sensitive information
     const { password, ...userData } = updatedUser.toObject(); // Exclude password
+    console.log('Updated user data:', userData);
+
     res.status(200).json({ message: 'User updated successfully', user: userData });
 
   } catch (error) {

@@ -11,6 +11,7 @@ const checkAdmin = require('../middlewares/check-admin');
 const multer = require('multer');
 const path = require('path');
 const Product = require('../models/product');
+const upload = require('../multerConfig');
 //or import {Product} from '../models/product';
 
 //multer
@@ -30,35 +31,6 @@ const Product = require('../models/product');
 
  */
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'api/Images'); // Resolving the path correctly
-    },
-    filename: function (req, file, cb) {
-        cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
-    }
-});
-
-
-//restriction of file types
-const fileFilter = (req,file,cb) =>{
-    //reject a file
-    if(file.mimetype === 'image/jpg' || file.mimetype === 'image/png'|| file.mimetype === 'image/jpeg'){
-        cb(null,true);
-    }
-    else{
-        cb(null,false);
-    }
-}
-
-const upload = multer({
-    storage : storage,
-    limits :{
-        fileSize : 1024 * 1024 * 5
-    },
-    fileFilter : fileFilter
-
-});
 
 
 

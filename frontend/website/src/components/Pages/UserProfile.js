@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ImageUpload from './ImageUpload'; // Import the ImageUpload component
+import ImageUpload from './ImageUpload'; 
 import './UserProfile.css';
 
 const UserProfile = () => {
-    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -21,7 +20,6 @@ const UserProfile = () => {
         district: ''
     });
     const [isEditing, setIsEditing] = useState(false);
-    const [imagePreview, setImagePreview] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
 
     useEffect(() => {
@@ -31,7 +29,6 @@ const UserProfile = () => {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/profile`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                setUser(response.data);
                 setFirstName(response.data.firstName);
                 setLastName(response.data.lastName);
                 setPhone(response.data.phone);
@@ -39,9 +36,6 @@ const UserProfile = () => {
                 setGstNumber(response.data.gstNumber);
                 if (response.data.address) {
                     setAddress(response.data.address);
-                }
-                if (response.data.profilePicture) {
-                    setImagePreview(response.data.profilePicture);
                 }
             } catch (err) {
                 console.error('Error fetching user profile:', err);
@@ -56,9 +50,6 @@ const UserProfile = () => {
 
     const handleImageChange = (file) => {
         setSelectedFile(file);
-        const reader = new FileReader();
-        reader.onloadend = () => setImagePreview(reader.result);
-        reader.readAsDataURL(file);
     };
 
     const handleSubmit = async (e) => {
@@ -85,128 +76,97 @@ const UserProfile = () => {
         }
     };
 
-    if (loading) return <p className="user-profile-loading">Loading...</p>;
-    if (error) return <p className="user-profile-error">{error}</p>;
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div className="user-profile">
             <div className="user-profile-header">
-                <div className="user-profile-upload-section">
-                    <ImageUpload onImageChange={handleImageChange} />
-                </div>
-
-                <form onSubmit={handleSubmit} className="user-profile-form">
+                <ImageUpload onImageChange={handleImageChange} />
+                <form onSubmit={handleSubmit}>
                     <h3>Personal Details</h3>
-                    <div className="user-profile-personal-details">
-                        <div className="user-profile-form-group">
-                            <label>First Name</label>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    value={firstName}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                    placeholder="Please fill this"
-                                    required
-                                />
-                            ) : (
-                                <span className="user-profile-value-background">{firstName || "Please fill this"}</span>
-                            )}
-                        </div>
-                        <div className="user-profile-form-group">
-                            <label>Last Name</label>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    value={lastName}
-                                    onChange={(e) => setLastName(e.target.value)}
-                                    placeholder="Please fill this"
-                                    required
-                                />
-                            ) : (
-                                <span className="user-profile-value-background">{lastName || "Please fill this"}</span>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="user-profile-personal-details">
-                        <div className="user-profile-form-group">
-                            <label>Email</label>
+                    <div>
+                        <label>First Name</label>
+                        {isEditing ? (
                             <input
-                                type="email"
-                                value={user?.email || "Please fill this"}
-                                readOnly
-                                className="user-profile-value-background"
+                                type="text"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
                             />
-                        </div>
-                        <div className="user-profile-form-group">
-                            <label>Phone Number</label>
-                            {isEditing ? (
-                                <input
-                                    type="tel"
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    placeholder="Please fill this"
-                                    required
-                                />
-                            ) : (
-                                <span className="user-profile-value-background">{phone || "Please fill this"}</span>
-                            )}
-                        </div>
+                        ) : (
+                            <span>{firstName || "Please fill this"}</span>
+                        )}
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        {isEditing ? (
+                            <input
+                                type="text"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
+                        ) : (
+                            <span>{lastName || "Please fill this"}</span>
+                        )}
+                    </div>
+                    <div>
+                        <label>Phone Number</label>
+                        {isEditing ? (
+                            <input
+                                type="tel"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                            />
+                        ) : (
+                            <span>{phone || "Please fill this"}</span>
+                        )}
                     </div>
 
                     <h3>Store Details</h3>
-                    <div className="user-profile-store-details">
-                        <div className="user-profile-form-group">
-                            <label>Store Name</label>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    value={storeName}
-                                    onChange={(e) => setStoreName(e.target.value)}
-                                    placeholder="Please fill this"
-                                    required
-                                />
-                            ) : (
-                                <span className="user-profile-value-background">{storeName || "Please fill this"}</span>
-                            )}
-                        </div>
-                        <div className="user-profile-form-group">
-                            <label>GST Number</label>
-                            {isEditing ? (
-                                <input
-                                    type="text"
-                                    value={gstNumber}
-                                    onChange={(e) => setGstNumber(e.target.value)}
-                                    placeholder="Please fill this"
-                                    required
-                                />
-                            ) : (
-                                <span className="user-profile-value-background">{gstNumber || "Please fill this"}</span>
-                            )}
-                        </div>
+                    <div>
+                        <label>Store Name</label>
+                        {isEditing ? (
+                            <input
+                                type="text"
+                                value={storeName}
+                                onChange={(e) => setStoreName(e.target.value)}
+                            />
+                        ) : (
+                            <span>{storeName || "Please fill this"}</span>
+                        )}
+                    </div>
+                    <div>
+                        <label>GST Number</label>
+                        {isEditing ? (
+                            <input
+                                type="text"
+                                value={gstNumber}
+                                onChange={(e) => setGstNumber(e.target.value)}
+                            />
+                        ) : (
+                            <span>{gstNumber || "Please fill this"}</span>
+                        )}
                     </div>
 
                     <h3>Address</h3>
-                    <div className="user-profile-address-details">
+                    <div>
                         {Object.entries(address).map(([key, value]) => (
-                            <div className="user-profile-form-group" key={key}>
+                            <div key={key}>
                                 <label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
                                 {isEditing ? (
                                     <input
                                         type="text"
                                         value={value}
                                         onChange={(e) => setAddress({ ...address, [key]: e.target.value })}
-                                        placeholder="Please fill this"
-                                        required={key !== "landmark"} // landmark is optional
                                     />
                                 ) : (
-                                    <span className="user-profile-value-background">{value || "Please fill this"}</span>
+                                    <span>{value || "Please fill this"}</span>
                                 )}
                             </div>
                         ))}
                     </div>
 
-                    <div className="user-profile-form-actions">
+                    <div>
                         {isEditing ? (
                             <button type="submit">Save Changes</button>
                         ) : (

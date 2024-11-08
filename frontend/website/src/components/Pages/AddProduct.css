@@ -90,7 +90,7 @@ label.custom-file-upload:hover {
 .details-section input[type="number"],
 .details-section textarea {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 2px solid #eee3e3;
     border-radius: 4px;
     font-size: 1rem;
     width: 100%;

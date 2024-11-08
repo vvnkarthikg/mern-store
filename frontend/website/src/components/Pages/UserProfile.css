@@ -72,7 +72,7 @@
 .user-profile-field input[type="tel"],
 .user-profile-field input[type="email"] {
    padding: 12px;
-   border: 1px solid #ccc;
+   border: 2px solid #eee3e3;
    border-radius: 4px;
 }
 
@@ -132,6 +132,8 @@
        font-size: 0.9rem; /* Smaller text size for inputs */
        width: auto; /* Reset width for smaller screens to fit better */
        margin-bottom: 10px; /* Add some space below each input field on small screens*/
+       border: 2px solid #eee3e3;
+
    }
 
    .user-profile-actions button[type="submit"],

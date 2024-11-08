@@ -43,7 +43,6 @@ const Login = ({ onSwitchToSignup }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="Enter your email"
             />
           </div>
           <div className="auth-form-group">
@@ -53,7 +52,6 @@ const Login = ({ onSwitchToSignup }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="Enter your password"
             />
           </div>
           <button type="submit" className="auth-submit-btn">Login</button>

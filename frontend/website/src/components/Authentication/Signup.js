@@ -47,7 +47,6 @@ const Signup = ({ onSwitchToLogin }) => {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
-              placeholder="Enter your first name"
             />
           </div>
           <div className="auth-form-group">
@@ -57,7 +56,6 @@ const Signup = ({ onSwitchToLogin }) => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
-              placeholder="Enter your last name"
             />
           </div>
           <div className="auth-form-group">
@@ -67,7 +65,6 @@ const Signup = ({ onSwitchToLogin }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="Enter your email"
             />
           </div>
           <div className="auth-form-group">
@@ -77,7 +74,6 @@ const Signup = ({ onSwitchToLogin }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              placeholder="Enter your password"
             />
           </div>
           <div className="auth-form-group">
@@ -87,7 +83,7 @@ const Signup = ({ onSwitchToLogin }) => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              placeholder="Confirm your password"
+              
             />
           </div>
           

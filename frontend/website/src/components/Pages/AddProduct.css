@@ -1,4 +1,9 @@
 /* AddProduct Component Styles */
+
+body {
+    background-color: #f5fbff;
+}
+
 .addproduct-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -93,7 +98,7 @@ label.custom-file-upload:hover {
     border: 2px solid #eee3e3;
     border-radius: 4px;
     font-size: 1rem;
-    width: 100%;
+    width: 95%;
 }
 
 .details-section textarea {
@@ -108,7 +113,6 @@ button[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
     transition: background-color 0.3s;
     width: 100%;
     font-size: 1rem;

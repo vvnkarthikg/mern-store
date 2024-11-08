@@ -1,4 +1,10 @@
 /* User Orders Container */
+
+body {
+    background-color: #f5fbff;
+}
+
+
 .user-orders {
     max-width: 1200px; /* Maximum width for the orders container */
     margin: 40px auto; /* Center the container with top and bottom margins */

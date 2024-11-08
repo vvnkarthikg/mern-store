@@ -1,5 +1,9 @@
 /* Main Product Details Section */
 
+body {
+    background-color: #f5fbff;
+}
+
 .product-details {
     display: flex;
     justify-content: center;
@@ -150,8 +154,7 @@ button:hover,
 .cancel-edit {
     padding: 12px 20px;
     font-size: 16px;
-    background-color: transparent; /* No fill color */
-    color: #dc3545; /* Text color for the button */
+    background-color: #dc3545 !important; /* Text color for the button */
     border: 2px solid #dc3545; /* Red border */
     border-radius: 5px;
     cursor: pointer;
@@ -161,7 +164,7 @@ button:hover,
 
 .cancel-edit:hover {
     background-color: #f8d7da; /* Light red background on hover */
-    color: #c82333; /* Darker red text on hover */
+    color: white; /* Darker red text on hover */
 }
 
 /* Loading and Error Messages */

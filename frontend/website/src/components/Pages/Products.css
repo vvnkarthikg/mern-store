@@ -1,8 +1,10 @@
 /* Global Styles */
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: #f5fbff;
     margin: 0; 
 }
+
+
 
 /* Home Container */
 .home-container {

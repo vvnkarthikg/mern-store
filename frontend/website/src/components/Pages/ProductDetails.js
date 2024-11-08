@@ -171,7 +171,7 @@ const ProductDetails = () => {
                             isEditing ? (
                                 <>
                                     <button onClick={handleSaveChanges}>Save Changes</button>
-                                    <button onClick={handleEditToggle}>Cancel</button>
+                                    <button onClick={handleEditToggle} className="cancel-edit">Cancel</button>
                                 </>
                             ) : (
                                 <button onClick={handleEditToggle}>Edit</button>

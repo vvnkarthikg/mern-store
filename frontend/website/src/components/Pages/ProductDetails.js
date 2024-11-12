@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import QuantityModal from './QuantityModal'; // Import the QuantityModal component
 import './ProductDetails.css'; // Import the CSS file for styles
+import no from '../images/no.jpg';
 
 const ProductDetails = () => {
     const { productId } = useParams();
@@ -95,6 +96,22 @@ const ProductDetails = () => {
         }
     };
 
+    const handleDelete = async () => {
+        const confirmation = window.confirm('Are you sure you want to delete this product?');
+        if (confirmation) {
+            try {
+                const token = localStorage.getItem('token'); // Get token from local storage
+                await axios.delete(`${process.env.REACT_APP_API_URL}/products/${productId}`, {
+                    headers: { Authorization: `Bearer ${token}` } // Set authorization header
+                });
+                alert('Product deleted successfully!');
+                navigate('/products'); // Redirect to the products list page after deletion
+            } catch (err) {
+                alert('Failed to delete product. Please try again.');
+            }
+        }
+    };
+
     if (loading) return <p className="loading">Loading...</p>;
     if (error) return <p className="error">{error}</p>;
 
@@ -104,7 +121,9 @@ const ProductDetails = () => {
         <div className="product-details">
             {product ? (
                 <div className="product-layout">
-                    <img src={`${process.env.REACT_APP_API_URL}/${product.productImage}`} alt={product.name} className="product-image" />
+                    <img    
+                     src={product.productImage ? `${process.env.REACT_APP_API_URL}/${product.productImage}` : no} 
+ alt={product.name} className="product-image" />
                     <div className="product-info">
                         <h1 className="product-name">
                             {isEditing ? (
@@ -174,7 +193,10 @@ const ProductDetails = () => {
                                     <button onClick={handleEditToggle} className="cancel-edit">Cancel</button>
                                 </>
                             ) : (
-                                <button onClick={handleEditToggle}>Edit</button>
+                                <>
+                                    <button onClick={handleEditToggle}>Edit</button>
+                                    <button onClick={handleDelete} className="delete-button">Delete</button>
+                                </>
                             )
                         )}
                     </div>

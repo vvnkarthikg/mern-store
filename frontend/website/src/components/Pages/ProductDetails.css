@@ -178,6 +178,20 @@ button:hover,
     text-align: center;
 }
 
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
    .product-layout {

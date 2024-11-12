@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaArrowRight, FaSearch } from 'react-icons/fa'; // Import the arrow and search icons
 import './SearchBar.css'; // Import the CSS for the SearchBar component
+import no from './images/no.jpg';
 
 const SearchBar = ({ products, onProductSelect }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -66,7 +67,7 @@ const SearchBar = ({ products, onProductSelect }) => {
                             style={{ cursor: 'pointer' }}
                         >
                             <img
-                                src={product.productImage ? `${process.env.REACT_APP_API_URL}/${product.productImage}` : '/images/no.jpg'}
+                                src={product.productImage ? `${process.env.REACT_APP_API_URL}/${product.productImage}` : no}
                                 alt={product.name}
                                 className="searchbar-product-image"
                             />

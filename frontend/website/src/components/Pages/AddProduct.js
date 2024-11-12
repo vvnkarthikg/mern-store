@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddProduct.css'; // Import the CSS file
 import ImageUpload from './ImageUpload';
+import no from '../images/no.jpg' ;
 
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState('');
-  const [productImage, setProductImage] = useState(null);
+  const [productImage, setProductImage] = useState(no);
   const [description, setDescription] = useState(''); // New state for description
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false); // Added loading state

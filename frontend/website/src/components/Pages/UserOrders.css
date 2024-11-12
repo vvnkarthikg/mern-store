@@ -92,7 +92,7 @@ body {
 }
 
 .status-processing {
-    color: orange; /* Orange or another color for processing status or another choice of your preference*/
+    color: rgb(205, 135, 5); /* Orange or another color for processing status or another choice of your preference*/
 }
 
 /* New Styles for Order Meta Information (Order Number and Date)*/
@@ -127,6 +127,6 @@ body {
 /* Apply Lato Font to Status Value Only */
 
 .order-item-status span { 
-   font-family: 'Lato', sans-serif;
-   font-weight: bold;
+   font-family: 'Arial',sans-serif;
+   font-weight: 400;
 }

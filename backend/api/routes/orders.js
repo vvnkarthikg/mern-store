@@ -5,11 +5,10 @@ const Order = require('../models/order');
 const Product = require('../models/product');
 const checkAuth = require('../middlewares/check-auth');
 
-// Function to format dates into a human-readable format
 const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return new Date(dateString).toISOString(); // Return the ISO string, which is standard
 };
+
 
 // Get all orders for a user or all orders if admin
 router.get('/', checkAuth, async (req, res) => {

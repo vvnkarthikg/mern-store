@@ -41,9 +41,9 @@ const Products = ({ products, error }) => {
                     />
                   </div>
                   <div className="prod-details">
-                    <h3>{product.name}</h3>
+                    <p className="prod-category">{product.category}</p>
+                    <h2>{product.name}</h2>
                     <p className="prod-price">₹{product.price}</p>
-                    <p className="prod-quantity">{product.quantity} left</p>
                   </div>
                 </div>
               </Link>

@@ -1,10 +1,8 @@
 /* Global Styles */
 body {
-    background-color: #f5fbff;
+    background-color: #ffffff;
     margin: 0; 
 }
-
-
 
 /* Home Container */
 .home-container {
@@ -19,23 +17,26 @@ body {
     margin: 0 auto 1em; /* Center the banner */
     padding: 0;
     box-sizing: border-box;
-    box-shadow: 0px 2px 30px rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
+    border-radius: 50px;
+
 }
 
 .banner-img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 50px;
     display: block;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.3);
+
 }
 
 /* Brand Section */
 .brand-section {
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0;
     background-color: #fff5f5;
     padding: 10px;
+    padding-bottom: 20px;
     border-radius: 8px;
 }
 
@@ -66,19 +67,19 @@ body {
 /* Product List */
 .prod-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reduced min width for smaller cards */
-    gap: 30px; /* Reduced gap between cards */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Standard size for cards */
+    gap: 30px; /* Space between cards */
     margin-top: 0.2rem;
 }
 
 .prod-card {
     border: 1px solid rgb(255, 245, 255);
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: white;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15); /* Reduced shadow size for lighter look */
+    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for better depth */
     overflow: hidden;
     transition: transform 0.3s ease;
-    padding: 8px; /* Reduced padding */
+    padding: 16px; /* Increased padding for more space inside cards */
 }
 
 .prod-card:hover {
@@ -87,77 +88,85 @@ body {
 
 .prod-image {
     width: 100%;
-    max-height: 250px; /* Reduced height for smaller image */
+    max-height: 400px; /* Increased height for larger images */
     overflow: hidden;
     border-bottom: 1px solid rgb(230, 225, 225);
+
 }
 
 .prod-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: cover; /* Ensures images cover the area without distortion */
 }
 
 .prod-details {
-    padding: 8px; /* Reduced padding */
+    padding: 8px; /* Increased padding for more space inside cards */
+    padding-top: 0px;;
 }
 
-.prod-details h3 {
-    margin: 0 0 5px;
-    font-size: 1em; /* Reduced font size */
-    color: black;
+.prod-category {
+    font-size: smaller; 
+    font-family: Roboto,sans-serif; 
+    font-size:12px;
+    font-weight: 600;
+    color:black; 
+    opacity:45%;
+    padding-top: 0px;
+}
+
+.prod-details h2 {
+    margin: 0 0 5px; 
+    font-size: 22px; /* Increased font size for product name */
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }
 
 .prod-price {
-    font-weight: 400;
-    font-size: 1em; /* Reduced font size */
-    color: black;
-    margin-bottom: 3px;
-}
-
-.prod-quantity {
-    font-size: 0.9em; /* Reduced font size */
-    color: black;
+    color:rgb(6, 161, 6);
+    font-size:medium;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Error Text Style */
 .error-text {
-    color: red;
-    text-align: center;
+    color: red; 
+    text-align: center; 
 }
 
 /* For tablets and smaller screens */
 @media (max-width: 768px) {
-    .home-container {
+   .home-container {
         padding-left: 5%;
         padding-right: 5%;
-    }
+   }
 
-    .prod-list {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjusted for smaller screens */
-    }
+   .prod-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjusted for smaller screens */
+   }
 
-    .prod-card {
-        margin-bottom: 20px;
-    }
+   .prod-card {
+        margin-bottom: 20px; 
+        padding:12px; /* Adjusted padding for smaller screens */
+   }
 
-    .banner-img {
-        height: auto;
-    }
+   .prod-image {
+        max-height:250px; /* Adjusted height for smaller images on tablets */
+   }
 }
 
 /* For mobile devices (smaller than tablets) */
-@media (max-width: 480px) {
-    .prod-details h3 {
-        font-size: 0.9em;
-    }
+@media (max-width:480px) {
+   .prod-details h3 {
+        font-size:.9em; 
+   }
 
-    .prod-price,
-    .prod-quantity {
-        font-size: 0.8em;
-    }
+   .prod-price { 
+        font-size:.9em; 
+   }
 
-    .banner-img {
-        height: auto;
-    }
+   .banner-img { 
+        height:auto; 
+   }
 }

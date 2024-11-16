@@ -24,8 +24,8 @@ body {
     background-color: #ffffff; /* White background for the order container */
     padding: 20px; /* Padding inside the container */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 1px 6px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow for better depth */
-    border: 1px solid #e0e0e0; /* Light gray border around the container */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.05); /* Enhanced shadow for better depth */
+    border: 1px solid rgb(255, 245, 255);
 }
 
 /* Order List Styles */

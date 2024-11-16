@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
-import bannerImage from '../images/minibanner4.png'; // Import the banner image
+import bannerImage from '../images/minibanner3.png'; // Import the banner image
 import brand1 from '../images/kinderjoy.png'; // Import brand logos
 import brand2 from '../images/parle.svg';
 import brand3 from '../images/tictac.png';
@@ -31,23 +31,30 @@ const Products = ({ products, error }) => {
           {products.length === 0 ? (
             <p>No products available</p>
           ) : (
-            products.map(product => (
-              <Link key={product._id} to={`/products/${product.productId}`} style={{ textDecoration: 'none' }}>
-                <div className="prod-card">
-                  <div className="prod-image">
-                    <img
-                      src={product.productImage && product.productImage !== "" ? `${process.env.REACT_APP_API_URL}/${product.productImage}` : no}
-                      alt={product.name}
-                    />
+            products.map(product => {
+              const discountedPrice = (product.price * 0.9).toFixed(2); // Calculate 10% discount
+              return (
+                <Link key={product._id} to={`/products/${product.productId}`} style={{ textDecoration: 'none' }}>
+                  <div className="prod-card">
+                    <div className="prod-image">
+                      <img
+                        src={product.productImage && product.productImage !== "" ? `${process.env.REACT_APP_API_URL}/${product.productImage}` : no}
+                        alt={product.name}
+                      />
+                    </div>
+                    <div className="prod-details">
+                      <p className="prod-category">{product.category}</p>
+                      <h2>{product.name}</h2>
+                      
+                      <p className="prod-price">₹{discountedPrice}</p>
+                      <p className="prod-mrp-price">
+                        MRP: <span className="prod-mrp-price" style={{ textDecoration: 'line-through', color: 'rgb(3, 3, 129)', fontSize: 'small' }}>₹{product.price}</span>
+                      </p>
+                    </div>
                   </div>
-                  <div className="prod-details">
-                    <p className="prod-category">{product.category}</p>
-                    <h2>{product.name}</h2>
-                    <p className="prod-price">₹{product.price}</p>
-                  </div>
-                </div>
-              </Link>
-            ))
+                </Link>
+              );
+            })
           )}
         </div>
       </div>

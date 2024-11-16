@@ -2,6 +2,7 @@
 body {
     background-color: #ffffff;
     margin: 0; 
+    font-family: Arial, sans-serif; /* Default font for the site */
 }
 
 /* Home Container */
@@ -18,7 +19,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     border-radius: 50px;
-
 }
 
 .banner-img {
@@ -27,7 +27,6 @@ body {
     border-radius: 50px;
     display: block;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.3);
-
 }
 
 /* Brand Section */
@@ -35,8 +34,7 @@ body {
     text-align: center;
     margin: 30px 0;
     background-color: #fff5f5;
-    padding: 10px;
-    padding-bottom: 20px;
+    padding: 10px 20px;
     border-radius: 8px;
 }
 
@@ -68,65 +66,80 @@ body {
 .prod-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Standard size for cards */
-    gap: 30px; /* Space between cards */
+    gap: 20px; /* Space between cards */
     margin-top: 0.2rem;
 }
 
 .prod-card {
     border: 1px solid rgb(255, 245, 255);
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: white;
-    box-shadow: 1px 4px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for better depth */
     overflow: hidden;
     transition: transform 0.3s ease;
     padding: 16px; /* Increased padding for more space inside cards */
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.05); /* Enhanced shadow for better depth */
+
 }
 
 .prod-card:hover {
     transform: scale(1.05);
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow for better depth */
+
 }
 
+/* Product Image Container */
 .prod-image {
+    display: flex; /* Allows centering */
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-height: 400px; /* Increased height for larger images */
-    overflow: hidden;
+    max-height: 400px; 
+    padding: 10px; /* Adds padding around the image */
     border-bottom: 1px solid rgb(230, 225, 225);
-
+    box-sizing: border-box; /* Ensures padding doesn't increase total size */
+    background-color: #f9f9f9; /* Optional: Adds a background for contrast */
 }
 
 .prod-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    width: 90%; /* Adjust image size inside the container */
+    height: auto; 
+    object-fit: contain; /* Keeps the aspect ratio intact */
+    max-height: 100%; /* Ensures it doesn't overflow the container */
 }
 
+/* Product Details */
 .prod-details {
     padding: 8px; /* Increased padding for more space inside cards */
-    padding-top: 0px;;
+    padding-top: 0;
 }
 
 .prod-category {
     font-size: smaller; 
-    font-family: Roboto,sans-serif; 
-    font-size:12px;
+    font-family: Roboto, sans-serif; 
     font-weight: 600;
-    color:black; 
-    opacity:45%;
-    padding-top: 0px;
+    color: black; 
+    opacity: 45%;
 }
 
 .prod-details h2 {
     margin: 0 0 5px; 
     font-size: 22px; /* Increased font size for product name */
-    color:black;
+    color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
 }
 
 .prod-price {
-    color:rgb(6, 161, 6);
-    font-size:medium;
-    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(3, 128, 3);
+    font-size:18px;
+    font-weight: 500;
+    font-family: Inter, Helvetica, sans-serif;
+}
+
+.prod-mrp-price{
+    color:rgb(2, 2, 175);
+    font-size:14px;
+    font-family: Arial, sans-serif;
 }
 
 /* Error Text Style */
@@ -137,36 +150,36 @@ body {
 
 /* For tablets and smaller screens */
 @media (max-width: 768px) {
-   .home-container {
+    .home-container {
         padding-left: 5%;
         padding-right: 5%;
-   }
+    }
 
-   .prod-list {
+    .prod-list {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Adjusted for smaller screens */
-   }
+    }
 
-   .prod-card {
+    .prod-card {
         margin-bottom: 20px; 
-        padding:12px; /* Adjusted padding for smaller screens */
-   }
+        padding: 12px; /* Adjusted padding for smaller screens */
+    }
 
-   .prod-image {
-        max-height:250px; /* Adjusted height for smaller images on tablets */
-   }
+    .prod-image {
+        max-height: 250px; /* Adjusted height for smaller images on tablets */
+    }
 }
 
 /* For mobile devices (smaller than tablets) */
-@media (max-width:480px) {
-   .prod-details h3 {
-        font-size:.9em; 
-   }
+@media (max-width: 480px) {
+    .prod-details h2 {
+        font-size: 0.9em; 
+    }
 
-   .prod-price { 
-        font-size:.9em; 
-   }
+    .prod-price { 
+        font-size: 0.9em; 
+    }
 
-   .banner-img { 
-        height:auto; 
-   }
+    .banner-img { 
+        height: auto; 
+    }
 }

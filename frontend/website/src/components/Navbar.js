@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { FaHome, FaUser, FaSignInAlt, FaSignOutAlt, FaShoppingCart, FaUserCircle } from 'react-icons/fa';
+import { FaHome, FaUser, FaSignInAlt, FaSignOutAlt, FaShoppingCart, FaUserCircle,FaPlusCircle } from 'react-icons/fa';
 import logo from './images/logo.png';
 import SearchBar from './SearchBar'; // Import the SearchBar component
 
@@ -48,7 +48,7 @@ const Navbar = ({ products }) => {
                 <li><Link to="/"><FaHome /> Home</Link></li>
                 <li><a href="/orders"><FaShoppingCart /> Orders</a></li>
                 {isAdmin && (
-                    <li><Link to="/add-product"><FaUser /> Add Product</Link></li>
+                    <li><Link to="/add-product"><FaPlusCircle /> Add Product</Link></li>
                 )}
                 {token ? (
                     <li>

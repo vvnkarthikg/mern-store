@@ -129,7 +129,7 @@ const ProductDetails = () => {
                                 ` ${product.category}`
                             )}
                         </p>
-                        <h1 className="product-name">
+                        <h3 className="product-name">
                             {isEditing ? (
                                 <input
                                     type="text"
@@ -139,7 +139,7 @@ const ProductDetails = () => {
                             ) : (
                                 product.name
                             )}
-                        </h1>
+                        </h3>
                         <p className="product-price">
                             ₹{isEditing ? (
                                 <input
@@ -165,7 +165,7 @@ const ProductDetails = () => {
                             ) } left
                         </p>
                         <div className="product-description">
-                            <h3>Description</h3>
+                            <h4>About this item</h4>
                             {isEditing ? (
                                 <textarea
                                     value={editedDescription}
@@ -181,12 +181,12 @@ const ProductDetails = () => {
                         {isAdmin && (
                             isEditing ? (
                                 <>
-                                    <button onClick={handleSaveChanges}>Save Changes</button>
+                                    <button onClick={handleSaveChanges} className="save-changes">Save Changes</button>
                                     <button onClick={handleEditToggle} className="cancel-edit">Cancel</button>
                                 </>
                             ) : (
                                 <>
-                                    <button onClick={handleEditToggle}>Edit</button>
+                                    <button onClick={handleEditToggle} className="edit-button">Edit</button>
                                     <button onClick={handleDelete} className="delete-button">Delete</button>
                                 </>
                             )

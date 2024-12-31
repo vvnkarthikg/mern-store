@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './Products.css';
 import no from '../images/no.jpg';
-import bannerImage from '../images/minibanner3.png'; // Import the banner image
+import bannerImage from '../images/minibanner7.png'; // Import the banner image
 import brand1 from '../images/kinderjoy.png'; // Import brand logos
 import brand2 from '../images/parle.svg';
 import brand3 from '../images/tictac.png';

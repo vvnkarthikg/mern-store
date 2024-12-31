@@ -1,18 +1,17 @@
-/* Main Product Details Section */
+/* General Styles */
 body {
-    background-color: #f5fbff;
+    background: linear-gradient(to bottom, #f9f9fe, #fafaff);
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
-/* Full-width layout for the product section */
+/* Main Product Details Section */
 .product-details-container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px;
-    min-height: 100vh;
+    padding: 20px 100px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -24,8 +23,9 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    box-shadow: -1.5px 1px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9fe;
+    border-radius: 10px;
 }
 
 .product-image {
@@ -33,18 +33,18 @@ body {
     height: auto;
     object-fit: contain;
     border: 1px solid transparent;
+    border-right: 0.1px solid #eee8e8;
     border-radius: 15px;
     padding: 20px;
     background-color: #f5fbff;
+    transition: transform 0.3s ease-in-out;
+    margin-right: 20px;
 }
 
-.product-image:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease-in-out;
-}
 
 .product-info {
-    padding: 20px;
+    padding: 40px;
+    padding-left: 25px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -57,40 +57,52 @@ body {
     font-family: 'Roboto', sans-serif;
     color: black;
     opacity: 50%;
-    font-size: large;
+    font-size:14px;
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .product-name {
-    font-size: 40px;
-    font-weight:bold;
+    font-size: 24px;
     margin: 0;
     margin-top: 5px;
-    font-family: 'Merriweather',Arial,sans-serif;
+    font-family: 'Roboto',Arial, Helvetica, sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(230, 225, 225);
+    font-weight: 500;
 }
 
 .product-price {
-    font-size: 24px;
-    
-    color: rgb(3, 128, 3);
+    font-size: 30px;
+    font-family: 'Bitter','Noto Sans', Helvetica, sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Adjust the space below the price */
 }
 
 .product-quantity {
     font-size: 18px;
-    margin-top: 0;
-
+    margin-top: 10px;
+    margin-bottom: 1px; /* Reduce the space below the quantity */
+    font-family: 'Noto Sans', 'Roboto', Arial, sans-serif;
 }
 
 .product-description {
-    width:auto;
-
+    width: auto;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 5px; /* Reduce the space above the description */
 }
 
-.product-description h3 {
-    font-size: 20px;
-    font-weight: bold;
+.product-description h4 {
+    font-size: 18px;
+    font-weight: 600;
     margin-bottom: 8px;
+    font-family: 'Noto Sans','Roboto',Arial, sans-serif;
+    border-bottom: 1px solid rgb(230, 225, 225);
+    margin-top: 10px;
+
+
 }
 
 /* Editable Fields */
@@ -120,12 +132,13 @@ textarea:focus {
 button,
 .add-to-cart,
 .buy-now,
+.edit-button,
 .save-changes,
-.edit-button {
+.cancel-edit,
+.delete-button {
     padding: 12px 20px;
     font-size: 16px;
     color: white;
-    background-color: #076dad;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -133,15 +146,7 @@ button,
     transition: background-color 0.3s ease;
 }
 
-button:hover,
-.add-to-cart:hover,
-.buy-now:hover,
-.save-changes:hover,
-.edit-button:hover {
-    background-color: #064268;
-}
-
-/* Specific Button Styles */
+/* Primary button styles */
 .buy-now {
     background-color: #2522b5;
     box-shadow: 0px 2px 5px rgba(3, 47, 204, 0.5);
@@ -151,37 +156,43 @@ button:hover,
     background-color: #e0a800;
 }
 
+/* Save Changes button - Green Primary Color */
 .save-changes {
-    background-color: #007bff;
+    background-color: #28a745; /* Green */
 }
 
 .save-changes:hover {
-    background-color: #0056b3;
+    background-color: #218838; /* Darker Green */
 }
 
+/* Edit and Cancel Buttons */
 .edit-button {
-    background-color: #17a2b8;
+    background-color: #2046ee;
 }
 
 .edit-button:hover {
-    background-color: #138496;
+    background-color: #0827b3;
 }
 
-/* Cancel Button Styles */
 .cancel-edit {
-    padding: 12px 20px;
-    font-size: 16px;
-    background-color: #dc3545 !important;
-    border: 2px solid #dc3545;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    
+    background-color: #dc3545;
+
 }
 
 .cancel-edit:hover {
     background-color: #f8d7da;
     color: white;
+}
+
+/* Delete Button Styles */
+.delete-button {
+    background-color: red;
+    
+}
+
+.delete-button:hover {
+    background-color: darkred;
 }
 
 /* Loading and Error Messages */
@@ -193,19 +204,6 @@ button:hover,
 .error {
     color: red;
     text-align: center;
-}
-
-.delete-button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.delete-button:hover {
-    background-color: darkred;
 }
 
 /* Media Queries for Responsiveness */

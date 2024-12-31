@@ -14,6 +14,14 @@
     flex-grow: 1; /* Allow input to take available space */
 }
 
+.searchbar-input::placeholder {
+    color: #888888; /* Change this to your desired color */
+    font-family: 'Noto Sans','Roboto', sans-serif; /* Change this to your desired font family */
+    font-size: 14px; /* Adjust the font size */
+    font-style: light; /* Optional: Add styling like italic */
+}
+
+
 /* Style for the search icon container */
 .search-icon {
     position: absolute; /* Position icon inside the input */

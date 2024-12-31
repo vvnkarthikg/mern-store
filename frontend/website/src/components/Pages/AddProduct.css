@@ -1,7 +1,7 @@
 /* AddProduct Component Styles */
 
 body {
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #f9f9fe, #ecf7f8);
 }
 
 .addproduct-container {

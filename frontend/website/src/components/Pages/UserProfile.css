@@ -1,7 +1,7 @@
 /* UserProfile Component Styles */
 
 body {
-   background-color: #f5fbff;
+   background: linear-gradient(to bottom, white, #fafaff);
 }
 
 .user-profile-container {

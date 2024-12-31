@@ -48,7 +48,7 @@ const SearchBar = ({ products, onProductSelect }) => {
         <div className="searchbar-container" ref={searchRef}>
             <input 
                 type="text" 
-                placeholder="Search" 
+                placeholder="search" 
                 className="searchbar-input" 
                 value={searchTerm} 
                 onChange={handleSearchChange} 

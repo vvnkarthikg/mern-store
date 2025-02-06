@@ -107,6 +107,7 @@ const ProductDetails = () => {
     if (error) return <p className="error">{error}</p>;
 
     const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    const discountedPrice = (product.price * 0.9).toFixed(2);
 
     return (
         <div className="product-details-container">
@@ -180,15 +181,15 @@ const ProductDetails = () => {
                         )}
                         {isAdmin && (
                             isEditing ? (
-                                <>
+                                <div className="button-container">
                                     <button onClick={handleSaveChanges} className="save-changes">Save Changes</button>
                                     <button onClick={handleEditToggle} className="cancel-edit">Cancel</button>
-                                </>
+                                </div>
                             ) : (
-                                <>
+                                <div className="button-container">
                                     <button onClick={handleEditToggle} className="edit-button">Edit</button>
                                     <button onClick={handleDelete} className="delete-button">Delete</button>
-                                </>
+                                </div>
                             )
                         )}
                     </div>
